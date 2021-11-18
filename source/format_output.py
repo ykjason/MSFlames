@@ -7,7 +7,7 @@ def unpack_nested(nested_list: list, num_rolls: int) -> list:
     return nested_list
 
 
-def print_stat_tiers(tier: int, roll_index: int, dual_index: int, level:int):
+def print_stat_tiers(tier: int, roll_index: int, dual_index: int, level:int, is_fa: bool):
     stat_dict = {
         0: 'STR',
         1: 'DEX',
@@ -16,9 +16,9 @@ def print_stat_tiers(tier: int, roll_index: int, dual_index: int, level:int):
     }
     if dual_index == -1:
         #solo rolls
-        print(f'Tier {tier} {stat_dict[roll_index]}: {queries.get_specific_tier_at_level(level, 1, tier)}')
+        print(f'Tier {tier} {stat_dict[roll_index]}: {queries.get_specific_tier_at_level(level, 1, tier, is_fa)}')
 
     else:
         #dual rolls
         print(f'Tier {tier} {stat_dict[roll_index]} and {stat_dict[dual_index]}:'
-              f' {queries.get_specific_tier_at_level(level, 2, tier)}')
+              f' {queries.get_specific_tier_at_level(level, 2, tier, is_fa)}')
